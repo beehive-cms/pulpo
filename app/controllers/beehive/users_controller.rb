@@ -3,7 +3,8 @@ module Beehive
     include Pagy::Backend
 
     def index
-      @pagy, @users = pagy(Beehive::User.all)
+      authorize User
+      @pagy, @users = pagy(User.all)
     end
   end
 end
