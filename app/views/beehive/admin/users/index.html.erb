@@ -1,20 +1,68 @@
-<%= search_form_for @q, url: admin_users_path do |f| %>
-  <%= f.label :email_cont %>
-  <%= f.search_field :email_cont %>
-<% end %>
+<div class="bh-page-header bg-light">
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item">Admin</li>
+      <li class="breadcrumb-item active">Users</li>
+    </ol>
+  </nav>
 
-<table>
-  <thead>
-    <tr><%= sort_link(@q, :id) %></tr>
-    <tr><%= sort_link(@q, :email) %></tr>
-  </thead>
+  <div class="row">
+    <div class="col">
+      <h1 class="bh-page-header-title">Users</h1>
+      <div class="bh-page-header-desc">
+        <p class="lead">Manage users that are able to manage contents of this website</p>
+      </div>
+    </div>
 
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.id %></td>
-      <td><%= user.email %></td>
-    </tr>
+    <div class="col text-right">
+      <a href="#" class="btn btn-primary">Add user</a>
+    </div>
+  </div>
+</div>
+
+<div class="bh-page-content">
+  <%= search_form_for @q, url: admin_users_path do |f| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :email_cont, 'Email' %>
+              <%= f.search_field :email_cont, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :role_users_role_id_eq, 'Role ID' %>
+              <%= f.search_field :role_users_role_id_eq, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <%= f.submit 'Filter results', class: 'btn btn-primary' %>
+      </div>
+    </div>
   <% end %>
-</table>
 
-<%== pagy_nav(@pagy) %>
+  <table class="table table-hover table-striped">
+    <thead>
+      <th><%= sort_link(@q, :id) %></th>
+      <th><%= sort_link(@q, :email) %></th>
+      <th>Roles</th>
+      <th><%= sort_link(@q, :created_at) %></th>
+    </thead>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.roles.map(&:name).join %></td>
+        <td><%= user.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%== pagy_nav(@pagy) %>
+</div>

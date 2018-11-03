@@ -5,8 +5,10 @@ module Beehive
 
       def index
         authorize User
+
         @q = User.ransack(params[:q])
-        @pagy, @users = pagy(@q.result(distinct: true))
+        results = @q.result(distinct: true).includes(:roles)
+        @pagy, @users = pagy(results)
       end
     end
   end

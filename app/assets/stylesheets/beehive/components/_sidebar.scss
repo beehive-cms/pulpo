@@ -1,0 +1,10 @@
+.bh-sidebar {
+  position: sticky;
+  top: 4rem;
+  height: calc(100vh - 4rem);
+  border-right: 1px solid #eee;
+
+  .nav .nav > li {
+    padding-left: 1rem;
+  }
+}
