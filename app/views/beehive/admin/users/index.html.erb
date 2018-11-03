@@ -54,6 +54,7 @@
       <th><%= sort_link(@q, :email) %></th>
       <th>Roles</th>
       <th><%= sort_link(@q, :created_at) %></th>
+      <th></th>
     </thead>
 
     <% @users.each do |user| %>
@@ -62,6 +63,11 @@
         <td><%= user.email %></td>
         <td><%= user.roles.map(&:name).join %></td>
         <td><%= user.created_at %></td>
+        <td class="text-right">
+          <a href="<%= edit_admin_user_path(user) %>" class="btn btn-primary btn-sm">
+            <i class="fa fa-pen"></i>
+          </a>
+        </td>
       </tr>
     <% end %>
   </table>
