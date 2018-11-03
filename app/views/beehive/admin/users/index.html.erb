@@ -1,6 +1,17 @@
+<%= search_form_for @q, url: admin_users_path do |f| %>
+  <%= f.label :email_cont %>
+  <%= f.search_field :email_cont %>
+<% end %>
+
 <table>
+  <thead>
+    <tr><%= sort_link(@q, :id) %></tr>
+    <tr><%= sort_link(@q, :email) %></tr>
+  </thead>
+
   <% @users.each do |user| %>
     <tr>
+      <td><%= user.id %></td>
       <td><%= user.email %></td>
     </tr>
   <% end %>

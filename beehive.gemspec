@@ -16,11 +16,12 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 5.2.1"
-  s.add_dependency "devise", "~> 4.5.0"
-  s.add_dependency "pagy", "~> 0.21.0"
-  s.add_dependency "pundit", "~> 2.0.0"
-  s.add_dependency "jsonapi-resources", "~> 0.9.3"
+  s.add_dependency "rails", "5.2.1"
+  s.add_dependency "devise", "4.5.0"
+  s.add_dependency "pagy", "0.21.0"
+  s.add_dependency "pundit", "2.0.0"
+  s.add_dependency "jsonapi-resources", "0.9.3"
+  s.add_dependency "ransack", "2.1.0"
 
   s.add_development_dependency "sqlite3"
 end
