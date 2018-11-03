@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     beehive (0.1.0)
-      devise (~> 4.5.0)
-      jsonapi-resources (~> 0.9.3)
-      pagy (~> 0.21.0)
-      pundit (~> 2.0.0)
-      rails (~> 5.2.1)
+      devise (= 4.5.0)
+      jsonapi-resources (= 0.9.3)
+      loaf (= 0.8.0)
+      pagy (= 0.21.0)
+      pundit (= 2.0.0)
+      rails (= 5.2.1)
+      ransack (= 2.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -78,6 +80,8 @@ GEM
       activerecord (>= 4.1)
       concurrent-ruby
       railties (>= 4.1)
+    loaf (0.8.0)
+      rails (>= 3.2)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -176,6 +180,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   jsonapi-resources
+  loaf
   pagy
   pundit
   ransack

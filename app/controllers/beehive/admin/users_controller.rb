@@ -1,7 +1,10 @@
 module Beehive
   module Admin
-    class UsersController < Beehive::ApplicationController
+    class UsersController < BaseController
       include Pagy::Backend
+
+      breadcrumb 'Admin', :admin_users_path
+      breadcrumb 'Users', :admin_users_path
 
       def index
         authorize User
