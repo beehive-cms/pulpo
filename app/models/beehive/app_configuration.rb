@@ -1,5 +1,5 @@
 module Beehive
   class AppConfiguration < Preferences::Configuration
-    preference :currency, :string, default: 'USD'
+    preference :site_title, :string, default: 'Beehive'
   end
 end

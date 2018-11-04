@@ -1,0 +1,31 @@
+<%= yield %>
+
+<div class="bh-page-header bg-light">
+  <nav aria-label="breadcrumb">
+    <ol class='breadcrumb'>
+      <% breadcrumb_trail do |crumb| %>
+        <li class="breadcrumb-item <%= crumb.current? ? 'current' : '' %>">
+          <%= link_to crumb.name, crumb.url, (crumb.current? ? {'aria-current' => 'page'} : {}) %>
+        </li>
+      <% end %>
+    </ol>
+  </nav>
+
+  <div class="row">
+    <div class="col">
+      <% if local_assigns.key?(:title) %>
+        <h1 class="bh-page-header-title"><%= title %></h1>
+      <% else %>
+        <%= yield :title %>
+      <% end %>
+
+      <div class="bh-page-header-desc">
+        <%= yield :body %>
+      </div>
+    </div>
+
+    <div class="col text-right">
+      <%= yield :actions %>
+    </div>
+  </div>
+</div>

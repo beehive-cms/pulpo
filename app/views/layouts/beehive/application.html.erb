@@ -16,7 +16,7 @@
 <body>
   <header class="navbar navbar-dark bg-dark flex-column flex-md-row px-0">
     <div class="col-xl-2">
-      <a href="#" class="navbar-brand">Beehive</a>
+      <a href="#" class="navbar-brand"><%= Beehive::Config[:site_title] %></a>
     </div>
 
     <div class="col-10 flex-column flex-md-row">
@@ -53,11 +53,15 @@
           </li>
 
           <li class="nav-item">
-            <a href="<%= admin_users_path %>" class="nav-link active">Admin</a>
+            <a href="<%= admin_users_path %>" class="nav-link active">Users</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<%= admin_users_path %>" class="nav-link active">Settings</a>
 
             <ul class="nav flex-column">
-              <li class="nav-item"><a href="" class="nav-link">General</a></li>
-              <li class="nav-item"><a href="" class="nav-link">Users</a></li>
+              <li class="nav-item"><a href="<%= edit_admin_general_settings_path %>" class="nav-link">General</a></li>
+              <li class="nav-item"><a href="" class="nav-link">Roles</a></li>
             </ul>
           </li>
         </ul>

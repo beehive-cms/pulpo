@@ -1,0 +1,16 @@
+<%= render 'header', title: 'General settings' do %>
+  <%= content_for :body do %>
+    <p>General website settings</p>
+  <% end %>
+<% end %>
+
+<div class="bh-page-content">
+  <%= form_for @general_settings, url: admin_general_settings_path, method: :put do |f| %>
+    <div class="form-group">
+      <%= f.label :site_title %>
+      <%= f.text_field :site_title, class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>

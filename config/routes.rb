@@ -3,6 +3,7 @@ Beehive::Engine.routes.draw do
 
   namespace :admin do
     resources :users
+    resource :general_settings, only: [:edit, :update]
   end
 
   namespace :api do
