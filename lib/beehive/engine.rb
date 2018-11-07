@@ -10,5 +10,9 @@ module Beehive
       g.test_framework :rspec
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
+
+    config.to_prepare do
+      Devise::SessionsController.layout 'beehive/devise'
+    end
   end
 end

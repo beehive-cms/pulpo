@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jsonapi-resources", "0.9.3"
   s.add_dependency "ransack", "2.1.0"
   s.add_dependency "loaf", "0.8.0"
+  s.add_dependency "draper", "3.0.1"
 
   s.add_development_dependency "sqlite3"
 end

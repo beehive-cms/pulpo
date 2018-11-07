@@ -2,8 +2,12 @@ Beehive::Engine.routes.draw do
   devise_for :users, path: :auth, class_name: 'Beehive::User', module: :devise
 
   namespace :admin do
+    root to: 'dashboard#index'
+
     resources :users
-    resource :general_settings, only: [:edit, :update]
+    resource :settings, only: [:show] do
+      resource :general, only: %i[edit update], on: :collection, module: :settings, controller: :general
+    end
   end
 
   namespace :api do

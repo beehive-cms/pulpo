@@ -14,57 +14,12 @@
   <%= javascript_include_tag "beehive/application" %>
 </head>
 <body>
-  <header class="navbar navbar-dark bg-dark flex-column flex-md-row px-0">
-    <div class="col-xl-2">
-      <a href="#" class="navbar-brand"><%= Beehive::Config[:site_title] %></a>
-    </div>
+  <%= render 'beehive/shared/navbar' %>
 
-    <div class="col-10 flex-column flex-md-row">
-      <ul class="navbar-nav d-md-flex flex-row ml-md-auto">
-        <li class="nav-item dropdown bh-navbar-user-menu">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.email %></a>
-
-          <div class="dropdown-menu dropdown-menu-right">
-            <a href="" class="dropdown-item">Sign-out</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </header>
-
-  <div class="container-fluid">
+  <div class="container-fluid px-0">
     <div class="row no-gutters flex-xl-nowrap">
       <aside class="bh-sidebar col-md-3 col-xl-2">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a href="<%= admin_users_path %>" class="nav-link active">Posts</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="<%= admin_users_path %>" class="nav-link active">Pages</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="<%= admin_users_path %>" class="nav-link active">Partners</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="<%= admin_users_path %>" class="nav-link active">E-books</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="<%= admin_users_path %>" class="nav-link active">Users</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="<%= admin_users_path %>" class="nav-link active">Settings</a>
-
-            <ul class="nav flex-column">
-              <li class="nav-item"><a href="<%= edit_admin_general_settings_path %>" class="nav-link">General</a></li>
-              <li class="nav-item"><a href="" class="nav-link">Roles</a></li>
-            </ul>
-          </li>
-        </ul>
+        <%= render 'beehive/shared/sidebar' %>
       </aside>
 
       <main class="bh-main col-10">

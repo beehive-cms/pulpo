@@ -1,0 +1,21 @@
+<%= render 'beehive/shared/page_header', title: 'Settings' do %>
+  <%= content_for :body do %>
+    <p>General website settings</p>
+  <% end %>
+<% end %>
+
+<div class="bh-page-content">
+  <div class="card-group bh-subpages-matrix">
+    <a href="<%= edit_admin_settings_general_path %>" class="card">
+      <div class="card-body">
+        <div class="media">
+          <i class="fa fa-home"></i>
+          <div class="media-body">
+            <h5 class="card-title">General</h5>
+            <p class="card-text">General website settings</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

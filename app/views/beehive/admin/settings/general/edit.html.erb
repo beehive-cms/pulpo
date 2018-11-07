@@ -1,0 +1,38 @@
+<%= render 'beehive/shared/page_header', title: 'General settings' do %>
+  <%= content_for :body do %>
+    <p>General website settings</p>
+  <% end %>
+<% end %>
+
+<div class="bh-page-content">
+  <%= form_for @general_settings, url: admin_settings_general_path, method: :put do |f| %>
+    <div class="form-section row">
+      <div class="col-4">
+        <h2 class="form-section-title">Website details</h2>
+        <div class="form-section-desc">
+          <p>Basic details about your website</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <%= f.label :site_title %>
+              <%= f.text_field :site_title, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :site_description %>
+              <%= f.text_area :site_description, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>

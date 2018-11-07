@@ -3,6 +3,7 @@ PATH
   specs:
     beehive (0.1.0)
       devise (= 4.5.0)
+      draper (= 3.0.1)
       jsonapi-resources (= 0.9.3)
       loaf (= 0.8.0)
       pagy (= 0.21.0)
@@ -41,6 +42,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (5.2.1)
       activesupport (= 5.2.1)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (5.2.1)
       activemodel (= 5.2.1)
       activesupport (= 5.2.1)
@@ -66,6 +71,12 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
+    draper (3.0.1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
     erubi (1.7.1)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -134,6 +145,8 @@ GEM
       activerecord (>= 5.0)
       activesupport (>= 5.0)
       i18n
+    request_store (1.4.1)
+      rack (>= 1.4)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -178,6 +191,7 @@ PLATFORMS
 DEPENDENCIES
   beehive!
   devise
+  draper
   factory_bot_rails
   jsonapi-resources
   loaf

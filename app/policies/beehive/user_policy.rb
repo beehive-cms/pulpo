@@ -1,7 +1,11 @@
 module Beehive
   class UserPolicy < ApplicationPolicy
     def index?
-      user.roles.map(&:name).include? 'admin'
+      user.role?(:admin)
+    end
+
+    def update?
+      user.role?(:admin)
     end
   end
 end

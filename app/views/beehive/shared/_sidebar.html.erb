@@ -1,0 +1,8 @@
+<ul class="nav flex-column">
+  <%= sidebar_nav_item 'Dashboard', admin_root_path, icon: 'home' %>
+  <%= sidebar_nav_item 'Users', admin_users_path, icon: 'user' %>
+
+  <%= sidebar_nav_item 'Settings', admin_settings_path, icon: 'cog' do %>
+    <%= sidebar_nav_item 'General', edit_admin_settings_general_path, icon: 'cog' %>
+  <% end %>
+</ul>

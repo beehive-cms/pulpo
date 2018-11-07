@@ -3,7 +3,10 @@ module Beehive
     include ActiveModel::Model
 
     # Define a list of editable settings
-    SETTING_KEYS = [:site_title].freeze
+    SETTING_KEYS = %i[
+      site_title
+      site_description
+    ].freeze
 
     # Generate accessors for all the setting keys
     SETTING_KEYS.each do |key|

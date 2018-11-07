@@ -1,0 +1,86 @@
+<%= render 'beehive/shared/page_header', title: @user.decorate do %>
+  <%= content_for :body do %>
+    <p>Edit user settings</p>
+  <% end %>
+<% end %>
+
+<div class="bh-page-content">
+  <%= form_for [:admin, @user] do |f| %>
+    <div class="form-section row">
+      <div class="col-4">
+        <h2 class="form-section-title">Basic details</h2>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control' %>
+              <small class="form-text text-muted">Used for sign-in and for sending notifications</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="form-section row">
+      <div class="col-4">
+        <h2 class="form-section-title">Password</h2>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="form-group">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="form-section row">
+      <div class="col-4">
+        <h2 class="form-section-title">Roles</h2>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <% Beehive::Role.all.each do |role| %>
+                <div class="col-3">
+                  <div class="form-group form-check">
+                    <%= check_box_tag "user[role_ids][]", role.id, f.object.roles.include?(role), class: 'form-check-input', id: "role-#{role.id}" %>
+                    <label for="role-<%= role.id %>" class="form-check-label"><%= role.name %></label>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>
