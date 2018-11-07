@@ -1,5 +1,5 @@
 <header class="navbar navbar-dark bg-dark flex-column flex-md-row">
-  <a href="#" class="navbar-brand">
+  <a href="<%= admin_root_path %>" class="navbar-brand">
     <%= Beehive::Config[:site_title] %>
   </a>
 
@@ -8,7 +8,7 @@
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.decorate %></a>
 
       <div class="dropdown-menu dropdown-menu-right">
-        <a href="" class="dropdown-item">Sign-out</a>
+        <%= link_to 'Sign-out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </div>
     </li>
   </ul>

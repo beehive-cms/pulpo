@@ -13,12 +13,3 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-gem 'rspec-rails'
-gem 'factory_bot_rails'
-gem 'devise'
-gem 'pagy'
-gem 'pundit'
-gem 'jsonapi-resources'
-gem 'ransack'
-gem 'loaf'
-gem 'draper'

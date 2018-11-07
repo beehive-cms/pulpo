@@ -6,6 +6,7 @@ require 'jsonapi-resources'
 require 'ransack'
 require 'loaf'
 require 'draper'
+require 'deface'
 
 module Beehive
   # Your code goes here...
