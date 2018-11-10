@@ -3,7 +3,7 @@ module Beehive
     class BaseController < ApplicationController
       before_action :authenticate_user!
 
-      breadcrumb 'Home', :admin_users_path
+      breadcrumb 'Home', :admin_root_path
     end
   end
 end
