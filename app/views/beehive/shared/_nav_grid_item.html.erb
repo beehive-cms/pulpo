@@ -1,0 +1,18 @@
+<a href="<%= path %>" class="card">
+  <div class="card-body">
+    <div class="media">
+      <span class="bh-nav-grid-icon">
+        <% if local_assigns[:text_icon].present? %>
+          <%= text_icon %>
+        <% elsif local_assigns[:icon].present? %>
+          <i class="fa fa-<%= icon %>"></i>
+        <% end %>
+      </span>
+
+      <div class="media-body">
+        <h5 class="card-title"><%= title %></h5>
+        <p class="card-text"><%= text %></p>
+      </div>
+    </div>
+  </div>
+</a>

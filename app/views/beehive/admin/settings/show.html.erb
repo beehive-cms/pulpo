@@ -6,32 +6,18 @@
 
 <div class="bh-page-content">
   <div class="card-group bh-nav-grid">
-    <a href="<%= edit_admin_settings_general_path %>" class="card">
-      <div class="card-body">
-        <div class="media">
-          <span class="bh-nav-grid-icon">
-            <i class="fa fa-home"></i>
-          </span>
+    <%=
+      render 'beehive/shared/nav_grid_item', path: edit_admin_settings_general_path,
+                                             title: 'General',
+                                             text_icon: 'g',
+                                             text: 'General website settings'
+    %>
 
-          <div class="media-body">
-            <h5 class="card-title">General</h5>
-            <p class="card-text">General website settings</p>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <a href="<%= admin_users_path %>" class="card">
-      <div class="card-body">
-        <div class="media">
-          <span class="bh-nav-grid-icon">u</span>
-
-          <div class="media-body">
-            <h5 class="card-title">Users</h5>
-            <p class="card-text">System users</p>
-          </div>
-        </div>
-      </div>
-    </a>
+    <%=
+      render 'beehive/shared/nav_grid_item', path: admin_users_path,
+                                             title: 'Users',
+                                             text_icon: 'u',
+                                             text: 'System users'
+    %>
   </div>
 </div>
