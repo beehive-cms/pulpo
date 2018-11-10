@@ -5,7 +5,7 @@
 </div>
 
 <ul class="nav flex-column">
-  <%= sidebar_nav_item 'Dashboard', admin_root_path, icon: 'home' %>
+  <%= sidebar_nav_item 'Dashboard', admin_root_path, icon: 'home', active: :exclusive %>
 
   <%= sidebar_nav_item 'Settings', admin_settings_path, icon: 'cog' do %>
     <%= sidebar_nav_item 'General', edit_admin_settings_general_path, text_icon: 'gl' %>

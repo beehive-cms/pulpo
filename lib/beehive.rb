@@ -7,6 +7,7 @@ require 'ransack'
 require 'loaf'
 require 'draper'
 require 'deface'
+require 'active_link_to'
 
 module Beehive
   # Your code goes here...

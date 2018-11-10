@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "loaf", "0.8.0"
   s.add_dependency "draper", "3.0.1"
   s.add_dependency "deface", "1.3.2"
+  s.add_dependency "active_link_to", "1.0.5"
 
   s.add_development_dependency "sqlite3"
 end
