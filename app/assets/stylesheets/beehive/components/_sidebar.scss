@@ -1,11 +1,17 @@
 .bh-sidebar {
   position: sticky;
-  top: 4rem;
-  height: calc(100vh - 4rem);
+  top: 0;
+  height: 100vh;
   border-right: 1px solid #eee;
   background: #fff;
 
   .nav .nav > li {
-    padding-left: 1rem;
+    padding-left: .5rem;
+  }
+
+  .nav-item {
+    &-icon {
+      display: inline-block;
+    }
   }
 }

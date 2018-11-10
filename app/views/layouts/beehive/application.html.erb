@@ -10,12 +10,10 @@
 
   <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/2.0.24/bootstrap-native-v4.min.js' %>
 
-  <%= stylesheet_link_tag    "beehive/application", media: "all" %>
+  <%= stylesheet_link_tag    "beehive/all", media: "all" %>
   <%= javascript_include_tag "beehive/application" %>
 </head>
 <body>
-  <%= render 'beehive/shared/navbar' %>
-
   <div class="container-fluid px-0">
     <div class="row no-gutters flex-xl-nowrap">
       <aside class="bh-sidebar col-md-3 col-xl-2">
@@ -23,6 +21,8 @@
       </aside>
 
       <main class="bh-main col-10">
+        <%= render 'beehive/shared/navbar' %>
+
         <%= yield %>
       </main>
     </div>

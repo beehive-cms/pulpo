@@ -3,6 +3,7 @@ module Beehive
     class UsersController < BaseController
       include Pagy::Backend
 
+      breadcrumb 'Settings', :admin_settings_path
       breadcrumb 'Users', :admin_users_path
 
       def index

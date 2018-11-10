@@ -46,7 +46,11 @@
       <tr>
         <td><%= user.id %></td>
         <td><%= user.email %></td>
-        <td><%= user.roles.map(&:name).join(', ') %></td>
+        <td>
+          <% user.roles.each do |role| %>
+            <span class="btn btn-tag"><%= role.name %></span>
+          <% end %>
+        </td>
         <td><%= user.created_at %></td>
         <td class="text-right">
           <a href="<%= edit_admin_user_path(user) %>" class="btn btn-primary btn-sm">

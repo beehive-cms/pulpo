@@ -1,9 +1,5 @@
-<header class="navbar navbar-dark bg-dark flex-column flex-md-row">
-  <a href="<%= admin_root_path %>" class="navbar-brand">
-    <%= Beehive::Config[:site_title] %>
-  </a>
-
-  <ul class="navbar-nav">
+<header class="navbar bh-navbar flex-column flex-md-row">
+  <ul class="navbar-nav ml-auto">
     <li class="nav-item dropdown bh-navbar-user-menu">
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.decorate %></a>
 
