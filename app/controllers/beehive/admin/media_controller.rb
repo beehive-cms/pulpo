@@ -10,6 +10,7 @@ module Beehive
         authorize ActiveStorage::Blob
 
         @q = ActiveStorage::Blob.ransack(params[:q])
+        @q.sorts = 'created_at desc' if @q.sorts.empty?
         results = @q.result(distinct: true)
         @pagy, @media = pagy(results)
       end

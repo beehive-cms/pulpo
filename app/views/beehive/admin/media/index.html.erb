@@ -2,6 +2,20 @@
   <%= content_for :body do %>
     <p>Manage media attachments</p>
   <% end %>
+
+  <%= content_for :actions do %>
+    <div data-controller="media-library-upload-btn"
+         data-media-library-upload-btn-upload-url="<%= main_app.rails_direct_uploads_path %>"
+         data-media-library-upload-btn-media-library-path="<%= admin_media_path %>"
+         data-turbolinks-permanent
+         id="media-library-upload-btn">
+      <button type="button" class="btn btn-primary" data-target="media-library-upload-btn.trigger">
+        + Upload files
+      </button>
+
+      <div data-target="media-library-upload-btn.modal"></div>
+    </div>
+  <% end %>
 <% end %>
 
 <div class="bh-page-content">
@@ -24,13 +38,13 @@
             <%= image_tag main_app.rails_blob_path(medium), size: '100x100' %>
           <% end %>
         </td>
-        <td>
+        <td class="align-middle">
           <h5><%= medium.filename %></h5>
-          <p class="text-muted"><%= number_to_human_size medium.byte_size %></p>
+          <p class="text-muted mb-0"><%= number_to_human_size medium.byte_size %></p>
         </td>
-        <td><%= medium.created_at %></td>
-        <td class="text-right">
-          <%= link_to main_app.rails_blob_path(medium, disposition: 'attachment'), class: 'btn btn-secondary btn-sm' do %>
+        <td class="align-middle"><%= medium.created_at %></td>
+        <td class="text-right align-middle">
+          <%= link_to main_app.rails_blob_path(medium, disposition: 'attachment'), class: 'btn btn-outline-secondary btn-sm' do %>
             <i class="fa fa-download"></i>
           <% end %>
 
