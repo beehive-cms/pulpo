@@ -4,13 +4,26 @@
   <% end %>
 
   <%= content_for :actions do %>
-    <a href="#" class="btn btn-primary">Add user</a>
+    <a href="<%= new_admin_user_path %>" class="btn btn-primary">Add user</a>
   <% end %>
 <% end %>
 
 <div class="bh-page-content">
-  <%= search_form_for @q, url: admin_users_path do |f| %>
-    <div class="card" id="more-filters">
+  <%= search_form_for @q, url: admin_users_path, data: { controller: 'search-form' } do |f| %>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button type="button" class="btn btn-outline-secondary" data-action="click->search-form#toggleMoreFilters">
+          Filter
+        </button>
+      </div>
+
+      <%= f.search_field :id_or_email_cont, placeholder: 'Quick search...',
+                                            class: 'form-control',
+                                            data: { action: 'keydown->search-form#submitForm' }
+      %>
+    </div>
+
+    <div class="card d-none" data-target="search-form.moreFilters">
       <div class="card-body">
         <div class="row">
           <div class="col">

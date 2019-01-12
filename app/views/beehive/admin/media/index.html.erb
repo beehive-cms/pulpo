@@ -1,0 +1,46 @@
+<%= render 'beehive/shared/page_header', title: 'Media' do %>
+  <%= content_for :body do %>
+    <p>Manage media attachments</p>
+  <% end %>
+<% end %>
+
+<div class="bh-page-content">
+  <table class="table table-hover table-striped">
+    <thead>
+      <th>Preview</th>
+      <th>
+        <%= sort_link(@q, :filename) %> and <%= sort_link(@q, :byte_size, 'size') %>
+      </th>
+      <th><%= sort_link(@q, :created_at) %></th>
+      <th></th>
+    </thead>
+
+    <% @media.each do |medium| %>
+      <tr>
+        <td>
+          <% if medium.previewable? %>
+            <%= medium.preview(resize_to_limit: [100, 100]) %>
+          <% else %>
+            <%= image_tag main_app.rails_blob_path(medium), size: '100x100' %>
+          <% end %>
+        </td>
+        <td>
+          <h5><%= medium.filename %></h5>
+          <p class="text-muted"><%= number_to_human_size medium.byte_size %></p>
+        </td>
+        <td><%= medium.created_at %></td>
+        <td class="text-right">
+          <%= link_to main_app.rails_blob_path(medium, disposition: 'attachment'), class: 'btn btn-secondary btn-sm' do %>
+            <i class="fa fa-download"></i>
+          <% end %>
+
+          <%= link_to admin_medium_path(medium), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%== pagy_nav(@pagy) %>
+</div>

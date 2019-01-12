@@ -1,0 +1,10 @@
+app
+bin
+config
+db
+lib
+spec
+Gemfile
+Gemfile.lock
+.rspec
+Rakefile

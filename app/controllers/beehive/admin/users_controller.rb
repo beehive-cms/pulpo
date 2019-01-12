@@ -5,6 +5,7 @@ module Beehive
 
       breadcrumb 'Settings', :admin_settings_path
       breadcrumb 'Users', :admin_users_path
+      breadcrumb 'Add new', :new_admin_user_path, only: [:new, :create]
 
       def index
         authorize User
@@ -20,6 +21,11 @@ module Beehive
         breadcrumb @user.decorate.to_s, admin_user_path(@user)
       end
 
+      def new
+        authorize User
+        @user = Beehive::CreateUserForm.new
+      end
+
       def update
         @user = find_user
         authorize @user
@@ -27,10 +33,21 @@ module Beehive
 
         clear_blank_password_params!
 
-        if @user.update_attributes(user_attributes)
+        if @user.update_attributes(user_params)
           redirect_to edit_admin_user_path(@user)
         else
           render :edit
+        end
+      end
+
+      def create
+        authorize User
+        @user = Beehive::CreateUserForm.new(user_params)
+
+        if @user.save
+          redirect_to admin_users_path
+        else
+          render :new
         end
       end
 
@@ -40,7 +57,7 @@ module Beehive
         User.find(params[:id])
       end
 
-      def user_attributes
+      def user_params
         params.require(:user).permit(:email, :password, :password_confirmation, role_ids: [])
       end
 

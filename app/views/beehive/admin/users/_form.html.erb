@@ -1,0 +1,97 @@
+<% action = @user.persisted? ? admin_user_path(@user) : admin_users_path %>
+
+<%= form_for @user, url: action, as: :user do |f| %>
+  <%= render 'beehive/shared/form_errors', resource: f.object %>
+
+  <div class="form-section row">
+    <div class="col-4">
+      <h2 class="form-section-title">Basic details</h2>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+            <small class="form-text text-muted">Used for sign-in and for sending notifications</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="form-section-separator">
+
+  <div class="form-section row">
+    <div class="col-4">
+      <h2 class="form-section-title">Password</h2>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="form-group mb-0">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: 'form-control' %>
+
+                <% if !f.object.persisted?%>
+                  <small class="form-text text-muted">Leave it blank to generate a random password</small>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group mb-0">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+
+          <% if !f.object.persisted?%>
+            <hr>
+
+            <div class="form-group form-check mb-0">
+              <%= check_box_tag 'user[send_password_instructions]', true, f.object.send_password_instructions, class: 'form-check-input' %>
+              <label for="user_send_password_instructions" class="form-check-label">Send e-mail message with password to this user</label>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="form-section-separator">
+
+  <div class="form-section row">
+    <div class="col-4">
+      <h2 class="form-section-title">Roles</h2>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <%= hidden_field_tag 'user[role_ids][]', '' %>
+
+            <% Beehive::Role.all.each do |role| %>
+              <div class="col-3">
+                <div class="form-group form-check">
+                  <%= check_box_tag "user[role_ids][]", role.id, f.object.role_ids.map(&:to_i).include?(role.id), class: 'form-check-input', id: "role-#{role.id}" %>
+                  <label for="role-<%= role.id %>" class="form-check-label"><%= role.name %></label>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="form-section-separator">
+
+  <%= f.submit 'Save' %>
+<% end %>
