@@ -9,6 +9,8 @@ Beehive::Engine.add_routes do
     resource :settings, only: [:show] do
       resource :general, only: %i[edit update], on: :collection, module: :settings, controller: :general
     end
+
+    put 'reorder/:model', to: 'utilities#reorder'
   end
 
   namespace :api do

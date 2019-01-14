@@ -1,6 +1,6 @@
 <% icon_class = local_assigns[:text_icon].present? ? 'nav-item-icon--text' : nil %>
 
-<li class="nav-item">
+<li class="nav-item" data-hook="<%= opts[:data_hook] %>">
   <%= active_link_to uri, class: 'nav-link', active: opts[:active] do %>
     <div class="nav-item-icon <%= icon_class %>">
       <% if opts[:text_icon].present? %>
