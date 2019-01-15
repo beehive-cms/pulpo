@@ -1,6 +1,6 @@
 import { Controller } from "stimulus"
 import { DirectUpload } from "@rails/activestorage"
-import { Api } from '@beehivecms/core/frontend/dist/index.mjs'
+import Api from '../lib/api'
 
 export default class extends Controller {
   static targets = ['input', 'progress', 'uploaded', 'uploadedImg']
