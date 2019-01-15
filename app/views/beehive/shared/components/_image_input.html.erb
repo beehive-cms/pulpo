@@ -1,0 +1,23 @@
+<div data-controller="image-input"
+     data-image-input-attached="<%= form.object.send(attribute).attached? %>"
+     data-image-input-upload-url="<%= main_app.rails_direct_uploads_path %>">
+
+  <%= form.file_field attribute, class: 'form-control',
+                                 data: { target: 'image-input.input',
+                                         action: 'change->image-input#upload' } %>
+
+  <div class="progress d-none" data-target="image-input.progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated"
+         aria-valuemin="0"
+         aria-valuemax="100"
+         style="width: 100%"></div>
+  </div>
+
+  <div class="d-none" data-target="image-input.uploaded">
+    <img src="<%= main_app.rails_blob_path(form.object.send(attribute)) if form.object.send(attribute).attached? %>"
+         data-target="image-input.uploadedImg"
+         width="100"
+         height="100"
+    >
+  </div>
+</div>
