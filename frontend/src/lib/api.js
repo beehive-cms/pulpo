@@ -20,10 +20,17 @@ function serializeQuery(params, prefix) {
 
 export default {
   async updateOrder (model, ids) {
-    Rails.ajax({
+    return Rails.ajax({
       type: 'PUT',
       url: `/admin/reorder/${model}.json`,
       data: serializeQuery({ ids: ids }, '')
     })
   },
+
+  async getMedium (id, args = {}) {
+    return Rails.ajax(Object.assign({
+      type: 'GET',
+      url: `/api/v1/media/${id}`
+    }, args))
+  }
 }

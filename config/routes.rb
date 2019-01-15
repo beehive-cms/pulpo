@@ -17,6 +17,7 @@ Beehive::Engine.add_routes do
     namespace :v1 do
       jsonapi_resources :users
       jsonapi_resources :roles
+      jsonapi_resources :media
     end
   end
 end

@@ -19,7 +19,7 @@
 <% end %>
 
 <div class="bh-page-content">
-  <table class="table table-hover table-striped">
+  <table class="table table-hover">
     <thead>
       <th>Preview</th>
       <th>
@@ -35,7 +35,7 @@
           <% if medium.previewable? %>
             <%= medium.preview(resize_to_limit: [100, 100]) %>
           <% else %>
-            <%= image_tag main_app.rails_blob_path(medium), size: '100x100' %>
+            <%= image_tag main_app.rails_blob_path(medium), size: '100x100', class: 'rounded' %>
           <% end %>
         </td>
         <td class="align-middle">
@@ -44,13 +44,15 @@
         </td>
         <td class="align-middle"><%= medium.created_at %></td>
         <td class="text-right align-middle">
-          <%= link_to main_app.rails_blob_path(medium, disposition: 'attachment'), class: 'btn btn-outline-secondary btn-sm' do %>
-            <i class="fa fa-download"></i>
-          <% end %>
+          <div class="btn-group">
+            <%= link_to main_app.rails_blob_path(medium, disposition: 'attachment'), class: 'btn btn-outline-secondary btn-sm' do %>
+              <i class="fa fa-download"></i>
+            <% end %>
 
-          <%= link_to admin_medium_path(medium), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
-            <i class="fa fa-trash"></i>
-          <% end %>
+            <%= link_to admin_medium_path(medium), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          </div>
         </td>
       </tr>
     <% end %>

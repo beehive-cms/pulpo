@@ -34,6 +34,7 @@
     "uppy-activestorage-upload": "^0.1.0"
   },
   "dependencies": {
+    "@rails/activestorage": "^6.0.0-alpha",
     "@uppy/core": "^0.29.0",
     "@uppy/dashboard": "^0.29.0",
     "@uppy/xhr-upload": "^0.29.0",
